@@ -34,7 +34,7 @@ CREATE TABLE detalle(
     FOREIGN KEY(boleta) REFERENCES boleta(id)
 );
 
-SELECT * FROM detalle
+SELECT * FROM producto
 
 /*select * from producto
 
@@ -42,6 +42,6 @@ select SUM(precio*cantidad) as 'Total precio' from producto
 
 insert into producto VALUES(null, 'Chocman', 150, 100)
 
-UPDATE producto Set cantidad = cantidad - 3 where id = 1;
+UPDATE producto Set cantidad = cantidad + (-3) where id = 1;
 UPDATE producto Set precio = 600 where id = 2
 */

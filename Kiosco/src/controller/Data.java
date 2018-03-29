@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import controller.Producto;
 
 
 public class Data {
@@ -41,6 +40,29 @@ public class Data {
         
         tablaVirtual = con.ejecutarSelect(sql);
         while (tablaVirtual.next()) {
+            p = new Producto();
+
+            p.setId(tablaVirtual.getInt(1));
+            p.setNombre(tablaVirtual.getString(2));
+            p.setCantidad(tablaVirtual.getInt(3));
+            p.setPrecio(tablaVirtual.getInt(4));
+            listProducto.add(p);
+
+        }
+
+        con.desconectar();
+        return listProducto;
+    }
+    
+    public List<Producto> getListaProductoId(int id) throws SQLException{
+        sql = "select * from producto where id = "+id;
+        
+        listProducto = new ArrayList<>();
+        
+        Producto p;
+        
+        tablaVirtual = con.ejecutarSelect(sql);
+        if (tablaVirtual.next()) {
             p = new Producto();
 
             p.setId(tablaVirtual.getInt(1));
@@ -107,13 +129,18 @@ public class Data {
     
     /*Selects de todo*/
     
+    //Updates de producto (ventas)
+    
+    public void ActualizarStockProducto(Detalle d) throws SQLException{
+        sql = "UPDATE producto Set cantidad = cantidad + "+d.getCantidad()+" where id = "+d.getProducto();
+        con.ejecutar(sql);
+    }
+    
     /*inserts ...*/
     
     public void AgregarProducto(Producto p) throws SQLException{
         sql = "insert into producto values(null,'"+p.getNombre()+"','"+p.getCantidad()+"','"+p.getPrecio()+"')";
-        
         con.ejecutar(sql);
-    
     }
     
     public void CrearBoleta(Boleta b) throws SQLException{
