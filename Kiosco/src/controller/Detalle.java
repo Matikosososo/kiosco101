@@ -2,12 +2,12 @@ package controller;
 
 public class Detalle {
     private int id;
-    private Producto producto;
-    private Boleta boleta;
+    private int producto;
+    private int boleta;
     private int cantidad;
     private int precio;
 
-    public Detalle(int id, Producto producto, Boleta boleta, int cantidad, int precio) {
+    public Detalle(int id, int producto, int boleta, int cantidad, int precio) {
         this.id = id;
         this.producto = producto;
         this.boleta = boleta;
@@ -17,7 +17,6 @@ public class Detalle {
 
     public Detalle() {
     }
-    
 
     public int getId() {
         return id;
@@ -27,19 +26,19 @@ public class Detalle {
         this.id = id;
     }
 
-    public Producto getProducto() {
+    public int getProducto() {
         return producto;
     }
 
-    public void setProducto(Producto producto) {
+    public void setProducto(int producto) {
         this.producto = producto;
     }
 
-    public Boleta getBoleta() {
+    public int getBoleta() {
         return boleta;
     }
 
-    public void setBoleta(Boleta boleta) {
+    public void setBoleta(int boleta) {
         this.boleta = boleta;
     }
 
@@ -58,6 +57,7 @@ public class Detalle {
     public void setPrecio(int precio) {
         this.precio = precio;
     }
+
     
     
 }
