@@ -16,6 +16,7 @@ public class kiosco_opciones extends javax.swing.JFrame {
      */
     public kiosco_opciones() {
         initComponents();
+        init();
     }
 
     /**
@@ -28,18 +29,140 @@ public class kiosco_opciones extends javax.swing.JFrame {
     private void initComponents() {
 
         jpn_kiosco_opciones = new javax.swing.JPanel();
+        btn_kiosco_opciones_cambiar_clave = new javax.swing.JButton();
+        jpn_cambiar_clave = new javax.swing.JPanel();
+        jpass_cambiar_clave_actual = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jpass_cambiar_clave_nueva = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
+        jpass_cambiar_clave_confirmar = new javax.swing.JPasswordField();
+        btn_cambiar_clave_confirmar = new javax.swing.JButton();
+        btn_cambiar_clave_cancelar = new javax.swing.JButton();
+        btn_kiosco_opciones_volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jpn_kiosco_opciones.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        btn_kiosco_opciones_cambiar_clave.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn_kiosco_opciones_cambiar_clave.setText("Cambiar contraseña");
+        btn_kiosco_opciones_cambiar_clave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_kiosco_opciones_cambiar_claveActionPerformed(evt);
+            }
+        });
+
+        jpn_cambiar_clave.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jpass_cambiar_clave_actual.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel1.setText("Ingrese contraseña actual: ");
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel2.setText("Ingrese nueva contraseña: ");
+
+        jpass_cambiar_clave_nueva.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel3.setText("Confirme contraseña: ");
+
+        jpass_cambiar_clave_confirmar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        btn_cambiar_clave_confirmar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn_cambiar_clave_confirmar.setText("Confirmar");
+        btn_cambiar_clave_confirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cambiar_clave_confirmarActionPerformed(evt);
+            }
+        });
+
+        btn_cambiar_clave_cancelar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn_cambiar_clave_cancelar.setText("Cancelar");
+        btn_cambiar_clave_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cambiar_clave_cancelarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jpn_cambiar_claveLayout = new javax.swing.GroupLayout(jpn_cambiar_clave);
+        jpn_cambiar_clave.setLayout(jpn_cambiar_claveLayout);
+        jpn_cambiar_claveLayout.setHorizontalGroup(
+            jpn_cambiar_claveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpn_cambiar_claveLayout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addGroup(jpn_cambiar_claveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jpn_cambiar_claveLayout.createSequentialGroup()
+                        .addComponent(btn_cambiar_clave_confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_cambiar_clave_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpn_cambiar_claveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jpass_cambiar_clave_nueva, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jpass_cambiar_clave_actual, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jpass_cambiar_clave_confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(117, Short.MAX_VALUE))
+        );
+        jpn_cambiar_claveLayout.setVerticalGroup(
+            jpn_cambiar_claveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpn_cambiar_claveLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jpass_cambiar_clave_actual, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jpass_cambiar_clave_nueva, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jpass_cambiar_clave_confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addGroup(jpn_cambiar_claveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_cambiar_clave_confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_cambiar_clave_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+
+        btn_kiosco_opciones_volver.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn_kiosco_opciones_volver.setText("Volver");
+        btn_kiosco_opciones_volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_kiosco_opciones_volverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpn_kiosco_opcionesLayout = new javax.swing.GroupLayout(jpn_kiosco_opciones);
         jpn_kiosco_opciones.setLayout(jpn_kiosco_opcionesLayout);
         jpn_kiosco_opcionesLayout.setHorizontalGroup(
             jpn_kiosco_opcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 691, Short.MAX_VALUE)
+            .addGroup(jpn_kiosco_opcionesLayout.createSequentialGroup()
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addGroup(jpn_kiosco_opcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_kiosco_opciones_cambiar_clave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_kiosco_opciones_volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(jpn_cambiar_clave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
         jpn_kiosco_opcionesLayout.setVerticalGroup(
             jpn_kiosco_opcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 453, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpn_kiosco_opcionesLayout.createSequentialGroup()
+                .addGroup(jpn_kiosco_opcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jpn_kiosco_opcionesLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jpn_cambiar_clave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jpn_kiosco_opcionesLayout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(btn_kiosco_opciones_cambiar_clave, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(btn_kiosco_opciones_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -61,6 +184,34 @@ public class kiosco_opciones extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_kiosco_opciones_cambiar_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_kiosco_opciones_cambiar_claveActionPerformed
+        jpn_cambiar_clave.setVisible(true);
+        btn_kiosco_opciones_cambiar_clave.setEnabled(false);
+    }//GEN-LAST:event_btn_kiosco_opciones_cambiar_claveActionPerformed
+
+    private void btn_cambiar_clave_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cambiar_clave_cancelarActionPerformed
+        jpn_cambiar_clave.setVisible(false);
+        btn_kiosco_opciones_cambiar_clave.setEnabled(true);
+        jpass_cambiar_clave_actual.setText(null);
+        jpass_cambiar_clave_nueva.setText(null);
+        jpass_cambiar_clave_confirmar.setText(null);
+    }//GEN-LAST:event_btn_cambiar_clave_cancelarActionPerformed
+
+    private void btn_kiosco_opciones_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_kiosco_opciones_volverActionPerformed
+        this.setVisible(false);
+        kiosco_menu_principal jframeMenu = new kiosco_menu_principal();
+        jframeMenu.setVisible(true);
+        jpass_cambiar_clave_actual.setText(null);
+        jpass_cambiar_clave_nueva.setText(null);
+        jpass_cambiar_clave_confirmar.setText(null);
+    }//GEN-LAST:event_btn_kiosco_opciones_volverActionPerformed
+
+    private void btn_cambiar_clave_confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cambiar_clave_confirmarActionPerformed
+        jpass_cambiar_clave_actual.setText(null);
+        jpass_cambiar_clave_nueva.setText(null);
+        jpass_cambiar_clave_confirmar.setText(null);
+    }//GEN-LAST:event_btn_cambiar_clave_confirmarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,6 +249,23 @@ public class kiosco_opciones extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cambiar_clave_cancelar;
+    private javax.swing.JButton btn_cambiar_clave_confirmar;
+    private javax.swing.JButton btn_kiosco_opciones_cambiar_clave;
+    private javax.swing.JButton btn_kiosco_opciones_volver;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPasswordField jpass_cambiar_clave_actual;
+    private javax.swing.JPasswordField jpass_cambiar_clave_confirmar;
+    private javax.swing.JPasswordField jpass_cambiar_clave_nueva;
+    private javax.swing.JPanel jpn_cambiar_clave;
     private javax.swing.JPanel jpn_kiosco_opciones;
     // End of variables declaration//GEN-END:variables
+
+    private void init() {
+        
+        jpn_cambiar_clave.setVisible(false);
+        
+    }
 }

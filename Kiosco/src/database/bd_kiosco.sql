@@ -8,8 +8,8 @@ CREATE TABLE password(
     password VARCHAR(8),
     PRIMARY KEY(id)
 );
-INSERT INTO password VALUES(null, 'admin')
-select password from password where password = 'admin'
+INSERT INTO password VALUES(null, 'admin');
+select password from password where password = 'admin';
 
 CREATE TABLE producto(
     id INT AUTO_INCREMENT,

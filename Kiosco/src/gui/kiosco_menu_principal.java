@@ -51,11 +51,21 @@ public class kiosco_menu_principal extends javax.swing.JFrame {
         btn_kiosco_menu_principal_venta.setText("Venta");
         btn_kiosco_menu_principal_venta.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btn_kiosco_menu_principal_venta.setIconTextGap(10);
+        btn_kiosco_menu_principal_venta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_kiosco_menu_principal_ventaActionPerformed(evt);
+            }
+        });
 
         btn_kiosco_menu_principal_opciones.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         btn_kiosco_menu_principal_opciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/instrumentos.png"))); // NOI18N
         btn_kiosco_menu_principal_opciones.setText("Opciones");
         btn_kiosco_menu_principal_opciones.setIconTextGap(10);
+        btn_kiosco_menu_principal_opciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_kiosco_menu_principal_opcionesActionPerformed(evt);
+            }
+        });
 
         btn_kiosco_menu_principal_salir.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         btn_kiosco_menu_principal_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/cerrar.png"))); // NOI18N
@@ -71,6 +81,11 @@ public class kiosco_menu_principal extends javax.swing.JFrame {
         btn_kiosco_menu_principal_productos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/panadero.png"))); // NOI18N
         btn_kiosco_menu_principal_productos.setText("Productos");
         btn_kiosco_menu_principal_productos.setIconTextGap(10);
+        btn_kiosco_menu_principal_productos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_kiosco_menu_principal_productosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpn_kiosco_menu_principalLayout = new javax.swing.GroupLayout(jpn_kiosco_menu_principal);
         jpn_kiosco_menu_principal.setLayout(jpn_kiosco_menu_principalLayout);
@@ -127,8 +142,33 @@ public class kiosco_menu_principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_kiosco_menu_principal_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_kiosco_menu_principal_salirActionPerformed
+        this.setVisible(false);
+        kiosco_inicio jframeKiosco = new kiosco_inicio();
+        
+        jframeKiosco.setVisible(true);
         
     }//GEN-LAST:event_btn_kiosco_menu_principal_salirActionPerformed
+
+    private void btn_kiosco_menu_principal_ventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_kiosco_menu_principal_ventaActionPerformed
+        this.setVisible(false);
+        kiosco_venta jframeVenta = new kiosco_venta();
+        
+        jframeVenta.setVisible(true);
+    }//GEN-LAST:event_btn_kiosco_menu_principal_ventaActionPerformed
+
+    private void btn_kiosco_menu_principal_productosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_kiosco_menu_principal_productosActionPerformed
+        this.setVisible(false);
+        kiosco_productos jframeProductos = new kiosco_productos();
+        
+        jframeProductos.setVisible(true);
+    }//GEN-LAST:event_btn_kiosco_menu_principal_productosActionPerformed
+
+    private void btn_kiosco_menu_principal_opcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_kiosco_menu_principal_opcionesActionPerformed
+        this.setVisible(false);
+        kiosco_opciones jframeOpciones = new kiosco_opciones();
+        
+        jframeOpciones.setVisible(true);
+    }//GEN-LAST:event_btn_kiosco_menu_principal_opcionesActionPerformed
 
     /**
      * @param args the command line arguments

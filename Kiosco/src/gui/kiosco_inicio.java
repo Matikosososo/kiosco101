@@ -163,8 +163,10 @@ public class kiosco_inicio extends javax.swing.JFrame {
             if(password.equals(d.buscarPassword(password))){
                 this.setVisible(false);
                 jFrameMenu.setVisible(true);
+                jpass_kiosco_inicio_clave.setText(null);
             }else{
                 JOptionPane.showMessageDialog(null, "Contraseña Incorrecta", "ERROR", JOptionPane.OK_OPTION);
+                jpass_kiosco_inicio_clave.setText(null);
             }
         } catch (SQLException ex) {
             Logger.getLogger(kiosco_inicio.class.getName()).log(Level.SEVERE, null, ex);
