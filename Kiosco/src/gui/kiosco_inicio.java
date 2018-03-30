@@ -5,6 +5,8 @@
  */
 package gui;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Veroko
@@ -61,6 +63,11 @@ public class kiosco_inicio extends javax.swing.JFrame {
         btn_kiosco_inicio_salir.setText("Salir");
         btn_kiosco_inicio_salir.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btn_kiosco_inicio_salir.setIconTextGap(15);
+        btn_kiosco_inicio_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_kiosco_inicio_salirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpn_kiosco_inicioLayout = new javax.swing.GroupLayout(jpn_kiosco_inicio);
         jpn_kiosco_inicio.setLayout(jpn_kiosco_inicioLayout);
@@ -118,6 +125,18 @@ public class kiosco_inicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_kiosco_inicio_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_kiosco_inicio_salirActionPerformed
+        int op;
+        int op2;
+        
+        op2 = JOptionPane.showConfirmDialog(null, "¿Realmente desea salir?", "Salir", op = JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        System.out.println(op2);
+        if(op2 == 0){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btn_kiosco_inicio_salirActionPerformed
 
     /**
      * @param args the command line arguments

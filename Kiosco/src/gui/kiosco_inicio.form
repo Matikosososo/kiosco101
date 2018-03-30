@@ -148,6 +148,9 @@
             <Property name="horizontalTextPosition" type="int" value="2"/>
             <Property name="iconTextGap" type="int" value="15"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_kiosco_inicio_salirActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
