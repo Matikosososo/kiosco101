@@ -5,6 +5,9 @@
  */
 package gui;
 
+import java.awt.Dialog;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Veroko
@@ -35,6 +38,7 @@ public class kiosco_menu_principal extends javax.swing.JFrame {
         btn_kiosco_menu_principal_productos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setName("jFrameMenu"); // NOI18N
 
         jpn_kiosco_menu_principal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -57,6 +61,11 @@ public class kiosco_menu_principal extends javax.swing.JFrame {
         btn_kiosco_menu_principal_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/cerrar.png"))); // NOI18N
         btn_kiosco_menu_principal_salir.setText("Salir");
         btn_kiosco_menu_principal_salir.setIconTextGap(10);
+        btn_kiosco_menu_principal_salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_kiosco_menu_principal_salirActionPerformed(evt);
+            }
+        });
 
         btn_kiosco_menu_principal_productos.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         btn_kiosco_menu_principal_productos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/panadero.png"))); // NOI18N
@@ -116,6 +125,10 @@ public class kiosco_menu_principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_kiosco_menu_principal_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_kiosco_menu_principal_salirActionPerformed
+        
+    }//GEN-LAST:event_btn_kiosco_menu_principal_salirActionPerformed
 
     /**
      * @param args the command line arguments

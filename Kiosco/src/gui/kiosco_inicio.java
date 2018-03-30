@@ -5,6 +5,11 @@
  */
 package gui;
 
+import controller.Data;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,11 +18,16 @@ import javax.swing.JOptionPane;
  */
 public class kiosco_inicio extends javax.swing.JFrame {
 
-    /**
-     * Creates new form kiosco_inicio
-     */
+    private Data d;
     public kiosco_inicio() {
-        initComponents();
+        try {
+            d = new Data();
+            initComponents();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(kiosco_inicio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(kiosco_inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -57,6 +67,11 @@ public class kiosco_inicio extends javax.swing.JFrame {
         btn_kiosco_inicio_ingresar.setToolTipText("");
         btn_kiosco_inicio_ingresar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btn_kiosco_inicio_ingresar.setIconTextGap(15);
+        btn_kiosco_inicio_ingresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_kiosco_inicio_ingresarActionPerformed(evt);
+            }
+        });
 
         btn_kiosco_inicio_salir.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btn_kiosco_inicio_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/cerrar.png"))); // NOI18N
@@ -137,6 +152,24 @@ public class kiosco_inicio extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_btn_kiosco_inicio_salirActionPerformed
+
+    private void btn_kiosco_inicio_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_kiosco_inicio_ingresarActionPerformed
+        try {
+            String password = new String(jpass_kiosco_inicio_clave.getPassword());
+            //System.out.println(password);
+            
+            kiosco_menu_principal jFrameMenu = new kiosco_menu_principal();
+            
+            if(password.equals(d.buscarPassword(password))){
+                this.setVisible(false);
+                jFrameMenu.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Contraseña Incorrecta", "ERROR", JOptionPane.OK_OPTION);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(kiosco_inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_kiosco_inicio_ingresarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -26,7 +26,7 @@ public class Data {
             "localhost",
             "root",
             "",
-            "bd_kiosko"
+            "bd_kiosco"
         );
     }
     
@@ -77,6 +77,28 @@ public class Data {
         return listProducto;
     }
     
+    public List<Producto> buscarProducto(String buscar) throws SQLException{
+        sql = "select * from producto where nombre LIKE '%"+buscar+"%'";
+        
+        listProducto = new ArrayList<>();
+        
+        Producto p;
+        
+        tablaVirtual = con.ejecutarSelect(sql);
+        while (tablaVirtual.next()) {
+            p = new Producto();
+
+            p.setId(tablaVirtual.getInt(1));
+            p.setNombre(tablaVirtual.getString(2));
+            p.setCantidad(tablaVirtual.getInt(3));
+            p.setPrecio(tablaVirtual.getInt(4));
+            listProducto.add(p);
+
+        }
+
+        con.desconectar();
+        return listProducto;
+    }
     
     public List<Boleta> getListaBoleta() throws SQLException{
         sql = "select * from boleta";
@@ -131,26 +153,53 @@ public class Data {
     
     //Updates de producto (ventas)
     
-    public void ActualizarStockProducto(Detalle d) throws SQLException{
+    public void actualizarStockProducto(Detalle d) throws SQLException{
         sql = "UPDATE producto Set cantidad = cantidad + "+d.getCantidad()+" where id = "+d.getProducto();
         con.ejecutar(sql);
     }
+    //Updates de producto (ventas)
     
+    //update password
+    public void actualizarPassword(String password) throws SQLException{
+        sql = "UPDATE producto Set password = "+password+" where id = 1";
+        con.ejecutar(sql);
+    }
+    
+    //update password
+    
+    //buscar password
+    public String buscarPassword(String pass) throws SQLException{
+        sql = "select password from password where password = '"+pass+"'";
+        String password = "";
+        
+        Password p;
+        
+        tablaVirtual = con.ejecutarSelect(sql);
+        if (tablaVirtual.next()) {
+            p = new Password();
+            p.setPassword(tablaVirtual.getString(1));
+            password = p.getPassword();
+        }
+
+        con.desconectar();
+        return password;
+    }
+            
     /*inserts ...*/
     
-    public void AgregarProducto(Producto p) throws SQLException{
+    public void agregarProducto(Producto p) throws SQLException{
         sql = "insert into producto values(null,'"+p.getNombre()+"','"+p.getCantidad()+"','"+p.getPrecio()+"')";
         con.ejecutar(sql);
     }
     
-    public void CrearBoleta(Boleta b) throws SQLException{
+    public void crearBoleta(Boleta b) throws SQLException{
         sql = "insert into boleta values(null,'"+b.getFecha()+"')";
         
         con.ejecutar(sql);
     
     }
     
-    public void CrearDetalle(Detalle d) throws SQLException{
+    public void crearDetalle(Detalle d) throws SQLException{
         sql = "insert into detalle values(null,'"+d.getProducto()+"','"+d.getBoleta()+"',"
                 + d.getCantidad()+"','"+d.getPrecio()+"')";
         
