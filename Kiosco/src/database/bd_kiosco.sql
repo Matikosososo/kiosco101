@@ -40,7 +40,7 @@ SELECT * FROM producto where nombre like '%coy%'
 
 /*select * from producto
 
-select SUM(precio*cantidad) as 'Total precio' from producto
+select SUM(150*2) as 'Total precio' from producto where id = 1
 
 insert into producto VALUES(null, 'Frugelle', 150, 100)
 

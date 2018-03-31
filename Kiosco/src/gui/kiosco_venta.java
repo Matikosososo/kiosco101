@@ -5,17 +5,34 @@
  */
 package gui;
 
-/**
- *
- * @author Veroko
- */
+import controller.Data;
+import controller.Producto;
+import controller.TMProductos;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+
 public class kiosco_venta extends javax.swing.JFrame {
 
-    /**
-     * Creates new form kiosco_venta
-     */
+    private Data d;
+    int cont = 0;
+    List<Producto> listaProductos;
     public kiosco_venta() {
-        initComponents();
+        try {
+            listaProductos = new ArrayList<>();
+            d = new Data();
+            initComponents();
+            init();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(kiosco_venta.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(kiosco_venta.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -55,6 +72,11 @@ public class kiosco_venta extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtable_lista_venta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtable_lista_ventaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtable_lista_venta);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -176,6 +198,23 @@ public class kiosco_venta extends javax.swing.JFrame {
         jframeMenu.setVisible(true);
     }//GEN-LAST:event_btn_kiosco_venta_volverActionPerformed
 
+    private void jtable_lista_ventaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtable_lista_ventaMouseClicked
+        if(evt.getClickCount()==2){
+            
+            try {
+                int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese cantidad a llevar"));
+                System.out.println(cantidad);
+                
+                select(cantidad);
+            } catch (SQLException ex) {
+                Logger.getLogger(kiosco_venta.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+           
+            
+        }
+    }//GEN-LAST:event_jtable_lista_ventaMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -225,4 +264,60 @@ public class kiosco_venta extends javax.swing.JFrame {
     private javax.swing.JTable jtable_lista_venta;
     private javax.swing.JTextField txt_venta_total;
     // End of variables declaration//GEN-END:variables
+
+    private void init() {
+        txt_venta_total.setText("0");
+        jtable_lista_venta.setModel(new DefaultTableModel());
+        jtable_carrito_venta.setModel(new DefaultTableModel());
+        cargarTabla();
+    }
+
+    private void cargarTablaVenta(List<Producto> lista) {
+        
+        try {
+            TMProductos  tm = new TMProductos(lista);
+            jtable_carrito_venta.setModel(tm);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(kiosco_venta.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(kiosco_venta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }
+    
+    private void cargarTabla() {
+        try {
+            List<Producto> listaProducto = d.getListaProducto();
+            TMProductos  tm = new TMProductos(listaProducto);
+            jtable_lista_venta.setModel(tm);
+        } catch (SQLException ex) {
+            Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void select(int cantidad) throws SQLException{
+        int row=jtable_lista_venta.getSelectedRow();
+        Producto p = new Producto();
+        p.setId((int) jtable_lista_venta.getValueAt(row, 0));//columna 0=nombre
+        p.setNombre((String) jtable_lista_venta.getValueAt(row, 1));//columna 1=apellido
+        p.setPrecio((int) jtable_lista_venta.getValueAt(row, 2));//columna 2=telf
+        p.setCantidad(cantidad);//columna 2=telf
+        
+        System.out.println(p.getId());
+        System.out.println(p.getNombre());
+        System.out.println(p.getPrecio());
+        System.out.println(p.getCantidad());
+        listaProductos.add(p);
+        
+        
+        
+        int precioUnidad = (d.getPrecioTotal(cantidad, p.getId(), p.getPrecio()));
+        int precioSubTotal = (Integer.parseInt(txt_venta_total.getText())) + precioUnidad;
+        String precioTotal = String.valueOf(precioSubTotal);
+        
+        txt_venta_total.setText(precioTotal);
+        cargarTablaVenta(listaProductos);
+    }
 }

@@ -130,6 +130,9 @@
                   </Table>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jtable_lista_ventaMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

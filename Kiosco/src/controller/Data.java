@@ -31,6 +31,19 @@ public class Data {
     }
     
     /*selects de todo*/
+    
+    public int getPrecioTotal(int cantidad, int id, int precio) throws SQLException{
+        int precioTotal = 0;
+        sql = "select SUM("+precio+"*"+cantidad+") from producto where id = "+id;
+        tablaVirtual = con.ejecutarSelect(sql);
+        if (tablaVirtual.next()) {
+            precioTotal = tablaVirtual.getInt(1);
+        }
+
+        con.desconectar();
+        return precioTotal;
+    }
+    
     public List<Producto> getListaProducto() throws SQLException{
         sql = "select * from producto";
         
@@ -161,7 +174,7 @@ public class Data {
     
     //update password
     public void actualizarPassword(String password) throws SQLException{
-        sql = "UPDATE producto Set password = "+password+" where id = 1";
+        sql = "UPDATE password Set password = '"+password+"' where id = 1";
         con.ejecutar(sql);
     }
     

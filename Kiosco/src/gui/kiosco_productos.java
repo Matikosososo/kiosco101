@@ -5,17 +5,32 @@
  */
 package gui;
 
+import controller.Data;
+import controller.Producto;
+import controller.TMProductos;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Veroko
  */
 public class kiosco_productos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form kiosco_productos
-     */
+    private Data d;
     public kiosco_productos() {
-        initComponents();
+        try {
+            d = new Data();
+            initComponents();
+            init();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -93,6 +108,11 @@ public class kiosco_productos extends javax.swing.JFrame {
 
         btn_nuevo_producto_agregar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btn_nuevo_producto_agregar.setText("Agregar");
+        btn_nuevo_producto_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nuevo_producto_agregarActionPerformed(evt);
+            }
+        });
 
         btn_nuevo_producto_cancelar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btn_nuevo_producto_cancelar.setText("Cancelar");
@@ -169,6 +189,11 @@ public class kiosco_productos extends javax.swing.JFrame {
 
         btn_buscar_productos.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btn_buscar_productos.setText("Buscar");
+        btn_buscar_productos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscar_productosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpn_kiosco_productosLayout = new javax.swing.GroupLayout(jpn_kiosco_productos);
         jpn_kiosco_productos.setLayout(jpn_kiosco_productosLayout);
@@ -247,11 +272,37 @@ public class kiosco_productos extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_productos_volverActionPerformed
 
     private void btn_nuevo_producto_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevo_producto_cancelarActionPerformed
-        txt_buscar_productos.setText(null);
-        txt_nuevo_producto_nombre.setText(null);
-        jsp_nuevo_producto_cantidad.setValue(0);
-        jsp_nuevo_producto_precio.setValue(0);
+        clear();
     }//GEN-LAST:event_btn_nuevo_producto_cancelarActionPerformed
+
+    private void btn_buscar_productosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_productosActionPerformed
+       
+        String buscar = txt_buscar_productos.getText();
+        
+        if(txt_buscar_productos.getText() == null){
+            cargarTabla();
+        }
+        cargarTablaBuscar(buscar);
+    }//GEN-LAST:event_btn_buscar_productosActionPerformed
+
+    private void btn_nuevo_producto_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevo_producto_agregarActionPerformed
+        try {
+            String nombreP;
+            int precioP;
+            int cantidadP;
+            
+            nombreP = txt_nuevo_producto_nombre.getText();
+            precioP = (int)jsp_nuevo_producto_precio.getValue();
+            cantidadP = (int)jsp_nuevo_producto_cantidad.getValue();
+            
+            Producto p = new Producto(nombreP, precioP, cantidadP);
+            d.agregarProducto(p);
+            clear();
+            cargarTabla();
+        } catch (SQLException ex) {
+            Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_nuevo_producto_agregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,4 +359,41 @@ public class kiosco_productos extends javax.swing.JFrame {
     private javax.swing.JTextField txt_buscar_productos;
     private javax.swing.JTextField txt_nuevo_producto_nombre;
     // End of variables declaration//GEN-END:variables
+    
+    private void clear(){
+        txt_buscar_productos.setText(null);
+        txt_nuevo_producto_nombre.setText(null);
+        jsp_nuevo_producto_cantidad.setValue(0);
+        jsp_nuevo_producto_precio.setValue(0);
+    };
+    
+    private void cargarTabla(){
+        
+        try {
+            List<Producto> listaProducto = d.getListaProducto();
+            TMProductos  tm = new TMProductos(listaProducto);
+            jtable_kiosco_productos_lista.setModel(tm);
+        } catch (SQLException ex) {
+            Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
+    
+    private void cargarTablaBuscar(String buscar){
+        
+        try {
+            List<Producto> listaProducto = d.buscarProducto(buscar);
+            TMProductos  tm = new TMProductos(listaProducto);
+            jtable_kiosco_productos_lista.setModel(tm);
+        } catch (SQLException ex) {
+            Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
+    private void init() {
+        jtable_kiosco_productos_lista.setModel(new DefaultTableModel());
+        cargarTabla();
+    }
 }
