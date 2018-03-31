@@ -40,7 +40,7 @@ public class TMProductos implements TableModel{
             case 2:
                 return "Precio";
             default:
-                return "Stock";
+                return "Cantidad";
         }
     }
 

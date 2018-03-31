@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -294,11 +295,15 @@ public class kiosco_productos extends javax.swing.JFrame {
             nombreP = txt_nuevo_producto_nombre.getText();
             precioP = (int)jsp_nuevo_producto_precio.getValue();
             cantidadP = (int)jsp_nuevo_producto_cantidad.getValue();
+            if((nombreP.equals("")) || precioP == 0 || cantidadP == 0){
+                JOptionPane.showMessageDialog(null, "Ingrese Datos para agregar producto");
+            }else{
+                Producto p = new Producto(nombreP, precioP, cantidadP);
+                d.agregarProducto(p);
+                clear();
+                cargarTabla();
+            }
             
-            Producto p = new Producto(nombreP, precioP, cantidadP);
-            d.agregarProducto(p);
-            clear();
-            cargarTabla();
         } catch (SQLException ex) {
             Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
         }

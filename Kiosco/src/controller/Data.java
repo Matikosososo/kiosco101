@@ -57,8 +57,9 @@ public class Data {
 
             p.setId(tablaVirtual.getInt(1));
             p.setNombre(tablaVirtual.getString(2));
-            p.setCantidad(tablaVirtual.getInt(3));
-            p.setPrecio(tablaVirtual.getInt(4));
+            p.setPrecio(tablaVirtual.getInt(3));
+            p.setCantidad(tablaVirtual.getInt(4));
+            
             listProducto.add(p);
 
         }
@@ -118,6 +119,7 @@ public class Data {
         
         listBoleta = new ArrayList<>();
         
+        
         Boleta b;
         
         tablaVirtual =  con.ejecutarSelect(sql);
@@ -162,14 +164,36 @@ public class Data {
         return listDetalle;
     }
     
+    public int getBoleta() throws SQLException{
+        int id = 0;
+        sql = "select MAX(id) from boleta";
+        tablaVirtual = con.ejecutarSelect(sql);
+        if (tablaVirtual.next()) {
+            id = tablaVirtual.getInt(1);
+        }
+
+        con.desconectar();
+        return id;
+    }
+    
     /*Selects de todo*/
     
     //Updates de producto (ventas)
     
-    public void actualizarStockProducto(Detalle d) throws SQLException{
-        sql = "UPDATE producto Set cantidad = cantidad + "+d.getCantidad()+" where id = "+d.getProducto();
+    public void actualizarBoleta(int id, String fecha) throws SQLException{
+        sql = "UPDATE boleta Set fecha = '"+fecha+"' where id = "+id;
         con.ejecutar(sql);
     }
+    
+    public void actualizarStockProducto(Producto p, int cantidad) throws SQLException{
+        sql = "UPDATE producto Set cantidad = cantidad + ("+cantidad+") where id = "+p.getId();
+        con.ejecutar(sql);
+    }
+    
+//    public void actualizarStockProducto(Producto p) throws SQLException{
+//        sql = "UPDATE producto Set cantidad = cantidad + ("+p.getCantidad()+") where id = "+p.getId();
+//        con.ejecutar(sql);
+//    }
     //Updates de producto (ventas)
     
     //update password
@@ -201,20 +225,19 @@ public class Data {
     /*inserts ...*/
     
     public void agregarProducto(Producto p) throws SQLException{
-        sql = "insert into producto values(null,'"+p.getNombre()+"','"+p.getCantidad()+"','"+p.getPrecio()+"')";
+        sql = "insert into producto values(null,'"+p.getNombre()+"','"+p.getPrecio()+"','"+p.getCantidad()+"')";
         con.ejecutar(sql);
     }
     
-    public void crearBoleta(Boleta b) throws SQLException{
-        sql = "insert into boleta values(null,'"+b.getFecha()+"')";
+    public void crearBoleta() throws SQLException{
+        sql = "insert into boleta values(null,'')";
         
         con.ejecutar(sql);
     
     }
     
     public void crearDetalle(Detalle d) throws SQLException{
-        sql = "insert into detalle values(null,'"+d.getProducto()+"','"+d.getBoleta()+"',"
-                + d.getCantidad()+"','"+d.getPrecio()+"')";
+        sql = "insert into detalle values(null, "+d.getProducto()+", "+d.getBoleta()+", "+d.getCantidad()+", "+d.getPrecio()+")";
         
         con.ejecutar(sql);
     }

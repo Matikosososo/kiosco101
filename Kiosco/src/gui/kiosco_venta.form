@@ -74,6 +74,11 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txt_venta_total" max="32767" attributes="0"/>
                       </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel4" min="-2" pref="60" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lbl_numBoleta" min="-2" pref="84" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
@@ -100,6 +105,11 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btn_kiosco_venta_cancelar" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                               <Component id="btn_kiosco_venta_realizar" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="lbl_numBoleta" max="32767" attributes="0"/>
+                              <Component id="jLabel4" pref="46" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="btn_kiosco_venta_volver" min="-2" pref="46" max="-2" attributes="0"/>
@@ -164,6 +174,9 @@
                   </Table>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jtable_carrito_ventaMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -183,6 +196,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Venta"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_kiosco_venta_realizarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_kiosco_venta_cancelar">
           <Properties>
@@ -191,6 +207,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_kiosco_venta_cancelarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_kiosco_venta_volver">
           <Properties>
@@ -214,10 +233,25 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txt_venta_total">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="N&#xb0; Boleta"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbl_numBoleta">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="11"/>
           </Properties>
         </Component>
       </SubComponents>

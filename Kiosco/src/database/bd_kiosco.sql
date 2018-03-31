@@ -9,8 +9,8 @@ CREATE TABLE password(
     PRIMARY KEY(id)
 );
 INSERT INTO password VALUES(null, 'admin');
-select password from password where password = 'admin';
-
+/*select password from password where password = 'admin';
+*/
 CREATE TABLE producto(
     id INT AUTO_INCREMENT,
     nombre VARCHAR(140),
@@ -21,9 +21,12 @@ CREATE TABLE producto(
 
 CREATE TABLE boleta(
     id INT AUTO_INCREMENT,
-    fecha VARCHAR(30),
+    fecha VARCHAR(50),
     PRIMARY KEY(id)
 );
+/*select * from boleta
+delete from boleta
+*/insert into boleta values(null, "");
 
 CREATE TABLE detalle(
     id INT AUTO_INCREMENT,
@@ -36,14 +39,14 @@ CREATE TABLE detalle(
     FOREIGN KEY(boleta) REFERENCES boleta(id)
 );
 
-SELECT * FROM producto where nombre like '%coy%'
-
+/*SELECT * FROM producto where nombre like '%coy%'
+*/
 /*select * from producto
-
+select * from detalle
 select SUM(150*2) as 'Total precio' from producto where id = 1
 
-insert into producto VALUES(null, 'Frugelle', 150, 100)
+insert into producto VALUES(null, 'Sprite 500cc', 700, 100)
 
-UPDATE producto Set cantidad = cantidad + (-3) where id = 1;
+UPDATE producto Set cantidad = cantidad + (3) where id = 1;
 UPDATE producto Set precio = 600 where id = 2
 */

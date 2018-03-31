@@ -14,7 +14,15 @@ public class Detalle {
         this.cantidad = cantidad;
         this.precio = precio;
     }
-
+    
+    public Detalle(int producto, int boleta, int cantidad, int precio) {
+        
+        this.producto = producto;
+        this.boleta = boleta;
+        this.cantidad = cantidad;
+        this.precio = precio;
+    }
+    
     public Detalle() {
     }
 
