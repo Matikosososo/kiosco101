@@ -190,6 +190,11 @@ public class Data {
         con.ejecutar(sql);
     }
     
+    public void actualizarStock(Producto p, int cantidad) throws SQLException{
+        sql = "UPDATE producto SET cantidad = " + cantidad + " where id = " + p.getId();
+        con.ejecutar(sql);
+    }
+    
 //    public void actualizarStockProducto(Producto p) throws SQLException{
 //        sql = "UPDATE producto Set cantidad = cantidad + ("+p.getCantidad()+") where id = "+p.getId();
 //        con.ejecutar(sql);

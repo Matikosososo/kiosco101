@@ -49,4 +49,5 @@ insert into producto VALUES(null, 'Sprite 500cc', 700, 100)
 
 UPDATE producto Set cantidad = cantidad + (3) where id = 1;
 UPDATE producto Set precio = 600 where id = 2
+UPDATE producto SET cantidad = 20 where id = 2;
 */

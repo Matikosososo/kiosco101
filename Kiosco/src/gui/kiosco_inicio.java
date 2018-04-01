@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 public class kiosco_inicio extends javax.swing.JFrame {
 
     private Data d;
+
     public kiosco_inicio() {
         try {
             d = new Data();
@@ -60,6 +61,11 @@ public class kiosco_inicio extends javax.swing.JFrame {
 
         jpass_kiosco_inicio_clave.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jpass_kiosco_inicio_clave.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jpass_kiosco_inicio_clave.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jpass_kiosco_inicio_claveKeyReleased(evt);
+            }
+        });
 
         btn_kiosco_inicio_ingresar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btn_kiosco_inicio_ingresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/proximo.png"))); // NOI18N
@@ -144,11 +150,11 @@ public class kiosco_inicio extends javax.swing.JFrame {
     private void btn_kiosco_inicio_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_kiosco_inicio_salirActionPerformed
         int op;
         int op2;
-        
+
         op2 = JOptionPane.showConfirmDialog(null, "¿Realmente desea salir?", "Salir", op = JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        
+
         System.out.println(op2);
-        if(op2 == 0){
+        if (op2 == 0) {
             System.exit(0);
         }
     }//GEN-LAST:event_btn_kiosco_inicio_salirActionPerformed
@@ -157,14 +163,14 @@ public class kiosco_inicio extends javax.swing.JFrame {
         try {
             String password = new String(jpass_kiosco_inicio_clave.getPassword());
             //System.out.println(password);
-            
+
             kiosco_menu_principal jFrameMenu = new kiosco_menu_principal();
-            
-            if((!password.equals(d.buscarPassword(password))) || (password.equals(""))){
+
+            if ((!password.equals(d.buscarPassword(password))) || (password.equals(""))) {
                 JOptionPane.showMessageDialog(null, "Contraseña Incorrecta", "ERROR", JOptionPane.OK_OPTION);
                 jpass_kiosco_inicio_clave.setText(null);
-            }else{
-                
+            } else {
+
                 this.setVisible(false);
                 jFrameMenu.setVisible(true);
                 jpass_kiosco_inicio_clave.setText(null);
@@ -173,6 +179,29 @@ public class kiosco_inicio extends javax.swing.JFrame {
             Logger.getLogger(kiosco_inicio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btn_kiosco_inicio_ingresarActionPerformed
+
+    private void jpass_kiosco_inicio_claveKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpass_kiosco_inicio_claveKeyReleased
+        if (evt.getKeyCode() == evt.VK_ENTER) {
+            try {
+                String password = new String(jpass_kiosco_inicio_clave.getPassword());
+                //System.out.println(password);
+
+                kiosco_menu_principal jFrameMenu = new kiosco_menu_principal();
+
+                if ((!password.equals(d.buscarPassword(password))) || (password.equals(""))) {
+                    JOptionPane.showMessageDialog(null, "Contraseña Incorrecta", "ERROR", JOptionPane.OK_OPTION);
+                    jpass_kiosco_inicio_clave.setText(null);
+                } else {
+
+                    this.setVisible(false);
+                    jFrameMenu.setVisible(true);
+                    jpass_kiosco_inicio_clave.setText(null);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(kiosco_inicio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jpass_kiosco_inicio_claveKeyReleased
 
     /**
      * @param args the command line arguments

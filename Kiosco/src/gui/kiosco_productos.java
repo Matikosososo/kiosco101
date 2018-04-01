@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 public class kiosco_productos extends javax.swing.JFrame {
 
     private Data d;
+
     public kiosco_productos() {
         try {
             d = new Data();
@@ -77,6 +78,11 @@ public class kiosco_productos extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtable_kiosco_productos_lista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtable_kiosco_productos_listaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtable_kiosco_productos_lista);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -277,10 +283,10 @@ public class kiosco_productos extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_nuevo_producto_cancelarActionPerformed
 
     private void btn_buscar_productosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_productosActionPerformed
-       
+
         String buscar = txt_buscar_productos.getText();
-        
-        if(txt_buscar_productos.getText() == null){
+
+        if (txt_buscar_productos.getText() == null) {
             cargarTabla();
         }
         cargarTablaBuscar(buscar);
@@ -291,23 +297,48 @@ public class kiosco_productos extends javax.swing.JFrame {
             String nombreP;
             int precioP;
             int cantidadP;
-            
+
             nombreP = txt_nuevo_producto_nombre.getText();
-            precioP = (int)jsp_nuevo_producto_precio.getValue();
-            cantidadP = (int)jsp_nuevo_producto_cantidad.getValue();
-            if((nombreP.equals("")) || precioP == 0 || cantidadP == 0){
+            precioP = (int) jsp_nuevo_producto_precio.getValue();
+            cantidadP = (int) jsp_nuevo_producto_cantidad.getValue();
+            if ((nombreP.equals("")) || precioP == 0 || cantidadP == 0) {
                 JOptionPane.showMessageDialog(null, "Ingrese Datos para agregar producto");
-            }else{
+            } else {
                 Producto p = new Producto(nombreP, precioP, cantidadP);
                 d.agregarProducto(p);
                 clear();
                 cargarTabla();
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btn_nuevo_producto_agregarActionPerformed
+
+    private void jtable_kiosco_productos_listaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtable_kiosco_productos_listaMouseClicked
+        if (evt.getClickCount() == 2) {
+            String input;
+            int cantidadStock = 0;
+            int row = jtable_kiosco_productos_lista.getSelectedRow();
+            Producto p = new Producto();
+            p.setId((int) jtable_kiosco_productos_lista.getValueAt(row, 0));
+            p.setNombre((String) jtable_kiosco_productos_lista.getValueAt(row, 1));
+            p.setPrecio((int) jtable_kiosco_productos_lista.getValueAt(row, 2));
+            p.setCantidad((int) jtable_kiosco_productos_lista.getValueAt(row, 3));
+            try {
+                do {
+                    input = JOptionPane.showInputDialog("Ingrese el stock nuevo");
+                    
+                } while (input.equals(""));
+                
+                cantidadStock = Integer.parseInt(input);
+                System.out.println(cantidadStock);
+                d.actualizarStock(p, cantidadStock);
+                cargarTabla();
+            } catch (Exception e) {
+            }
+        }
+    }//GEN-LAST:event_jtable_kiosco_productos_listaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -364,39 +395,42 @@ public class kiosco_productos extends javax.swing.JFrame {
     private javax.swing.JTextField txt_buscar_productos;
     private javax.swing.JTextField txt_nuevo_producto_nombre;
     // End of variables declaration//GEN-END:variables
-    
-    private void clear(){
+
+    private void clear() {
         txt_buscar_productos.setText(null);
         txt_nuevo_producto_nombre.setText(null);
         jsp_nuevo_producto_cantidad.setValue(0);
         jsp_nuevo_producto_precio.setValue(0);
-    };
+    }
+
+    ;
     
-    private void cargarTabla(){
-        
+    private void cargarTabla() {
+
         try {
             List<Producto> listaProducto = d.getListaProducto();
-            TMProductos  tm = new TMProductos(listaProducto);
+            TMProductos tm = new TMProductos(listaProducto);
             jtable_kiosco_productos_lista.setModel(tm);
         } catch (SQLException ex) {
             Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
     }
-    
-    private void cargarTablaBuscar(String buscar){
-        
+
+    private void cargarTablaBuscar(String buscar) {
+
         try {
             List<Producto> listaProducto = d.buscarProducto(buscar);
-            TMProductos  tm = new TMProductos(listaProducto);
+            TMProductos tm = new TMProductos(listaProducto);
             jtable_kiosco_productos_lista.setModel(tm);
         } catch (SQLException ex) {
             Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
     }
+
     private void init() {
         jtable_kiosco_productos_lista.setModel(new DefaultTableModel());
         cargarTabla();
