@@ -107,11 +107,13 @@ public class kiosco_productos extends javax.swing.JFrame {
         jLabel4.setText("Precio: ");
 
         jsp_nuevo_producto_precio.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jsp_nuevo_producto_precio.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel5.setText("Cantidad: ");
 
         jsp_nuevo_producto_cantidad.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jsp_nuevo_producto_cantidad.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         btn_nuevo_producto_agregar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btn_nuevo_producto_agregar.setText("Agregar");
@@ -329,7 +331,7 @@ public class kiosco_productos extends javax.swing.JFrame {
                 do {
                     input = JOptionPane.showInputDialog("Ingrese el stock nuevo");
                     
-                } while (input.equals(""));
+                } while (input.equals("") || input.contains("-"));
                 
                 cantidadStock = Integer.parseInt(input);
                 System.out.println(cantidadStock);

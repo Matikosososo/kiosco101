@@ -62,8 +62,14 @@ public class kiosco_inicio extends javax.swing.JFrame {
         jpass_kiosco_inicio_clave.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jpass_kiosco_inicio_clave.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jpass_kiosco_inicio_clave.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jpass_kiosco_inicio_claveKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jpass_kiosco_inicio_claveKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jpass_kiosco_inicio_claveKeyTyped(evt);
             }
         });
 
@@ -181,8 +187,17 @@ public class kiosco_inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_kiosco_inicio_ingresarActionPerformed
 
     private void jpass_kiosco_inicio_claveKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpass_kiosco_inicio_claveKeyReleased
+
+    }//GEN-LAST:event_jpass_kiosco_inicio_claveKeyReleased
+
+    private void jpass_kiosco_inicio_claveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpass_kiosco_inicio_claveKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jpass_kiosco_inicio_claveKeyTyped
+
+    private void jpass_kiosco_inicio_claveKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpass_kiosco_inicio_claveKeyPressed
         if (evt.getKeyCode() == evt.VK_ENTER) {
             try {
+                
                 String password = new String(jpass_kiosco_inicio_clave.getPassword());
                 //System.out.println(password);
 
@@ -190,7 +205,9 @@ public class kiosco_inicio extends javax.swing.JFrame {
 
                 if ((!password.equals(d.buscarPassword(password))) || (password.equals(""))) {
                     JOptionPane.showMessageDialog(null, "Contraseña Incorrecta", "ERROR", JOptionPane.OK_OPTION);
-                    jpass_kiosco_inicio_clave.setText(null);
+             
+                    jpass_kiosco_inicio_clave.selectAll();
+                    
                 } else {
 
                     this.setVisible(false);
@@ -201,7 +218,7 @@ public class kiosco_inicio extends javax.swing.JFrame {
                 Logger.getLogger(kiosco_inicio.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_jpass_kiosco_inicio_claveKeyReleased
+    }//GEN-LAST:event_jpass_kiosco_inicio_claveKeyPressed
 
     /**
      * @param args the command line arguments

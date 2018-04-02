@@ -247,7 +247,7 @@ public class kiosco_venta extends javax.swing.JFrame {
                 do {
                     input = JOptionPane.showInputDialog("Ingrese cantidad a llevar");
                     System.out.println(input);
-                } while (input.equals("0") || input.equals(""));
+                } while (input.equals("0") || input.equals("") || input.contains("-"));
                 
                 cantidad = Integer.parseInt(input);
                 System.out.println(cantidad);
@@ -257,8 +257,7 @@ public class kiosco_venta extends javax.swing.JFrame {
                 
             } catch (Exception e) {
                 
-            }
-            
+            } 
         }
     }//GEN-LAST:event_jtable_lista_ventaMouseClicked
 
