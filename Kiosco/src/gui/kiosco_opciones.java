@@ -223,21 +223,21 @@ public class kiosco_opciones extends javax.swing.JFrame {
             String confirmPass = new String(jpass_cambiar_clave_confirmar.getPassword());
 
             if ((!passActual.equals(d.buscarPassword(passActual))) || (passActual.equals(""))) {
-                JOptionPane.showMessageDialog(null, "Contraseña actual no valida", "ERROR", JOptionPane.OK_OPTION);
+                jpass_cambiar_clave_nueva.selectAll();
+                JOptionPane.showMessageDialog(null, "Contraseña actual no valida", "ERROR", JOptionPane.OK_OPTION); 
             } else {
                 if ((!newPass.equals(confirmPass)) || (newPass.equals("")) || (confirmPass.equals(""))) {
                     JOptionPane.showMessageDialog(null, "Nuevas contraseñas no coinciden", "ERROR", JOptionPane.OK_OPTION);
                 } else {
                     d.actualizarPassword(newPass);
                     JOptionPane.showMessageDialog(null, "Contraseña cambiada. Vuelva a iniciar se sesión con su nueva contraseña");
+                    kiosco_inicio jframeKiosco = new kiosco_inicio();
+                    this.setVisible(false);
+                    jframeKiosco.setVisible(true);
+                    clear();
                 }
             }
-            clear();
-
-            this.setVisible(false);
-            kiosco_inicio jframeKiosco = new kiosco_inicio();
-
-            jframeKiosco.setVisible(true);
+            clear();            
         } catch (SQLException ex) {
             Logger.getLogger(kiosco_opciones.class.getName()).log(Level.SEVERE, null, ex);
         }

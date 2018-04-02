@@ -104,8 +104,8 @@ public class Data {
 
             p.setId(tablaVirtual.getInt(1));
             p.setNombre(tablaVirtual.getString(2));
-            p.setCantidad(tablaVirtual.getInt(3));
-            p.setPrecio(tablaVirtual.getInt(4));
+            p.setPrecio(tablaVirtual.getInt(3));
+            p.setCantidad(tablaVirtual.getInt(4));
             listProducto.add(p);
 
         }

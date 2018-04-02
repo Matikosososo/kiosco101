@@ -254,7 +254,18 @@ public class kiosco_venta extends javax.swing.JFrame {
 
         kiosco_menu_principal jframeMenu = new kiosco_menu_principal();
         jframeMenu.setVisible(true);
-        
+        Producto pe;
+        for (int i = 0; i < listaProductos.size(); i++) {
+
+            try {
+                pe = new Producto(listaProductos.get(i).getId(), listaProductos.get(i).getNombre(), listaProductos.get(i).getPrecio(), listaProductos.get(i).getCantidad());
+
+                d.actualizarStockProducto(pe, listaProductos.get(i).getCantidad());
+
+            } catch (SQLException ex) {
+                Logger.getLogger(kiosco_venta.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 
     }//GEN-LAST:event_btn_kiosco_venta_volverActionPerformed
 
@@ -274,7 +285,7 @@ public class kiosco_venta extends javax.swing.JFrame {
                 System.out.println(cantidad);
                 select(cantidad);
 
-                btn_kiosco_venta_volver.setEnabled(false);
+                
                 
             } catch (Exception e) {
                 
@@ -466,7 +477,7 @@ public class kiosco_venta extends javax.swing.JFrame {
             int stock = (int) jtable_lista_venta.getValueAt(row, 3);
             if (stock == 0 || cantidad > stock) {
                 JOptionPane.showMessageDialog(null, "No posee Stock o la cantidad ingresada es Mayor al Stock del producto");
-
+                
             } else {
                 Producto p = new Producto();
                 p.setId((int) jtable_lista_venta.getValueAt(row, 0));//columna 0=nombre
@@ -492,6 +503,7 @@ public class kiosco_venta extends javax.swing.JFrame {
                 cargarTablaVenta(listaProductos);
                 cargarTabla();
                 btn_kiosco_venta_realizar.setEnabled(true);
+                
             }
 
         } catch (SQLException ex) {
