@@ -64,6 +64,8 @@ public class kiosco_venta extends javax.swing.JFrame {
         txt_venta_total = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         lbl_numBoleta = new javax.swing.JLabel();
+        btn_buscar = new javax.swing.JButton();
+        txt_buscar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -152,6 +154,13 @@ public class kiosco_venta extends javax.swing.JFrame {
 
         lbl_numBoleta.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
 
+        btn_buscar.setText("Buscar");
+        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpn_kiosco_ventaLayout = new javax.swing.GroupLayout(jpn_kiosco_venta);
         jpn_kiosco_venta.setLayout(jpn_kiosco_ventaLayout);
         jpn_kiosco_ventaLayout.setHorizontalGroup(
@@ -160,13 +169,16 @@ public class kiosco_venta extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(jpn_kiosco_ventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                    .addGroup(jpn_kiosco_ventaLayout.createSequentialGroup()
+                        .addComponent(btn_buscar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_buscar)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addGroup(jpn_kiosco_ventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_kiosco_venta_volver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jpn_kiosco_ventaLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpn_kiosco_ventaLayout.createSequentialGroup()
                         .addComponent(btn_kiosco_venta_realizar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                         .addComponent(btn_kiosco_venta_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -174,9 +186,12 @@ public class kiosco_venta extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_venta_total))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpn_kiosco_ventaLayout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(btn_kiosco_venta_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpn_kiosco_ventaLayout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lbl_numBoleta, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(40, 40, 40))
         );
@@ -187,43 +202,48 @@ public class kiosco_venta extends javax.swing.JFrame {
                 .addGroup(jpn_kiosco_ventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jpn_kiosco_ventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jpn_kiosco_ventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpn_kiosco_ventaLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jpn_kiosco_ventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_buscar)
+                            .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(45, 45, 45)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpn_kiosco_ventaLayout.createSequentialGroup()
+                        .addGap(46, 46, 46)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(32, 32, 32)
                         .addGroup(jpn_kiosco_ventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_venta_total, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_venta_total, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(55, 55, 55)
                         .addGroup(jpn_kiosco_ventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_kiosco_venta_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_kiosco_venta_realizar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jpn_kiosco_ventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lbl_numBoleta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_kiosco_venta_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                        .addGroup(jpn_kiosco_ventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpn_kiosco_ventaLayout.createSequentialGroup()
+                                .addGap(96, 96, 96)
+                                .addComponent(btn_kiosco_venta_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpn_kiosco_ventaLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jpn_kiosco_ventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_numBoleta, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(219, 219, 219))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jpn_kiosco_venta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jpn_kiosco_venta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jpn_kiosco_venta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jpn_kiosco_venta, javax.swing.GroupLayout.PREFERRED_SIZE, 713, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
         pack();
@@ -234,6 +254,7 @@ public class kiosco_venta extends javax.swing.JFrame {
 
         kiosco_menu_principal jframeMenu = new kiosco_menu_principal();
         jframeMenu.setVisible(true);
+        
 
     }//GEN-LAST:event_btn_kiosco_venta_volverActionPerformed
 
@@ -337,6 +358,15 @@ public class kiosco_venta extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jtable_carrito_ventaMouseClicked
 
+    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+        String buscar = txt_buscar.getText();
+
+        if (txt_buscar.getText() == null) {
+            cargarTabla();
+        }
+        cargarTablaBuscar(buscar);
+    }//GEN-LAST:event_btn_buscarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -373,6 +403,7 @@ public class kiosco_venta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_kiosco_venta_cancelar;
     private javax.swing.JButton btn_kiosco_venta_realizar;
     private javax.swing.JButton btn_kiosco_venta_volver;
@@ -386,6 +417,7 @@ public class kiosco_venta extends javax.swing.JFrame {
     private javax.swing.JTable jtable_carrito_venta;
     private javax.swing.JTable jtable_lista_venta;
     private javax.swing.JLabel lbl_numBoleta;
+    private javax.swing.JTextField txt_buscar;
     private javax.swing.JTextField txt_venta_total;
     // End of variables declaration//GEN-END:variables
 
@@ -472,5 +504,17 @@ public class kiosco_venta extends javax.swing.JFrame {
         txt_venta_total.setText("0");
         listaProductos = new ArrayList<>();
         btn_kiosco_venta_realizar.setEnabled(false);
+    }
+
+    private void cargarTablaBuscar(String buscar) {
+         try {
+            List<Producto> listaProducto = d.buscarProducto(buscar);
+            TMProductos tm = new TMProductos(listaProducto);
+            jtable_lista_venta.setModel(tm);
+        } catch (SQLException ex) {
+            Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

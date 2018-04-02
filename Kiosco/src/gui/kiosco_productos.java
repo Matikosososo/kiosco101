@@ -318,6 +318,7 @@ public class kiosco_productos extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_nuevo_producto_agregarActionPerformed
 
     private void jtable_kiosco_productos_listaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtable_kiosco_productos_listaMouseClicked
+
         if (evt.getClickCount() == 2) {
             String input;
             int cantidadStock = 0;
@@ -327,18 +328,20 @@ public class kiosco_productos extends javax.swing.JFrame {
             p.setNombre((String) jtable_kiosco_productos_lista.getValueAt(row, 1));
             p.setPrecio((int) jtable_kiosco_productos_lista.getValueAt(row, 2));
             p.setCantidad((int) jtable_kiosco_productos_lista.getValueAt(row, 3));
+
             try {
                 do {
                     input = JOptionPane.showInputDialog("Ingrese el stock nuevo");
-                    
+
                 } while (input.equals("") || input.contains("-"));
-                
+
                 cantidadStock = Integer.parseInt(input);
                 System.out.println(cantidadStock);
                 d.actualizarStock(p, cantidadStock);
                 cargarTabla();
             } catch (Exception e) {
             }
+
         }
     }//GEN-LAST:event_jtable_kiosco_productos_listaMouseClicked
 

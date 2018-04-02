@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 public class kiosco_opciones extends javax.swing.JFrame {
 
     private Data d;
+
     public kiosco_opciones() {
         try {
             d = new Data();
@@ -215,23 +216,28 @@ public class kiosco_opciones extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_kiosco_opciones_volverActionPerformed
 
     private void btn_cambiar_clave_confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cambiar_clave_confirmarActionPerformed
-        
+
         try {
             String passActual = new String(jpass_cambiar_clave_actual.getPassword());
             String newPass = new String(jpass_cambiar_clave_nueva.getPassword());
             String confirmPass = new String(jpass_cambiar_clave_confirmar.getPassword());
-            
-            if((!passActual.equals(d.buscarPassword(passActual))) || (passActual.equals(""))){
+
+            if ((!passActual.equals(d.buscarPassword(passActual))) || (passActual.equals(""))) {
                 JOptionPane.showMessageDialog(null, "Contraseña actual no valida", "ERROR", JOptionPane.OK_OPTION);
-            }else{
-                if((!newPass.equals(confirmPass)) || (newPass.equals("")) || (confirmPass.equals(""))){
+            } else {
+                if ((!newPass.equals(confirmPass)) || (newPass.equals("")) || (confirmPass.equals(""))) {
                     JOptionPane.showMessageDialog(null, "Nuevas contraseñas no coinciden", "ERROR", JOptionPane.OK_OPTION);
-                }else{
+                } else {
                     d.actualizarPassword(newPass);
-                    JOptionPane.showMessageDialog(null, "Contraseña Cambiada");
+                    JOptionPane.showMessageDialog(null, "Contraseña cambiada. Vuelva a iniciar se sesión con su nueva contraseña");
                 }
             }
             clear();
+
+            this.setVisible(false);
+            kiosco_inicio jframeKiosco = new kiosco_inicio();
+
+            jframeKiosco.setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(kiosco_opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -286,16 +292,18 @@ public class kiosco_opciones extends javax.swing.JFrame {
     private javax.swing.JPanel jpn_cambiar_clave;
     private javax.swing.JPanel jpn_kiosco_opciones;
     // End of variables declaration//GEN-END:variables
-    
-    private void clear(){
+
+    private void clear() {
         jpass_cambiar_clave_actual.setText(null);
         jpass_cambiar_clave_nueva.setText(null);
         jpass_cambiar_clave_confirmar.setText(null);
-    };
+    }
+
+    ;
     
     private void init() {
-        
+
         jpn_cambiar_clave.setVisible(false);
-        
+
     }
 }

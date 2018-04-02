@@ -97,7 +97,7 @@
                           <Component id="txt_buscar_productos" min="-2" pref="28" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Component id="btn_buscar_productos" min="-2" pref="41" max="-2" attributes="0"/>
-                          <EmptySpace pref="38" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="btn_productos_volver" min="-2" pref="44" max="-2" attributes="0"/>
