@@ -327,6 +327,9 @@ public class kiosco_productos extends javax.swing.JFrame {
         if (evt.getClickCount() == 2) {
             String input;
             int cantidadStock = 0;
+            int precioN = 0;
+            int opcionIN;
+            String opcion, precio;
             int row = jtable_kiosco_productos_lista.getSelectedRow();
             Producto p = new Producto();
             p.setId((int) jtable_kiosco_productos_lista.getValueAt(row, 0));
@@ -335,15 +338,35 @@ public class kiosco_productos extends javax.swing.JFrame {
             p.setCantidad((int) jtable_kiosco_productos_lista.getValueAt(row, 3));
 
             try {
-                do {
-                    input = JOptionPane.showInputDialog("Ingrese el stock nuevo");
+                opcion = JOptionPane.showInputDialog("Ingrese opcion a cambiar : 1 = STOCK, 2 = PRECIO");
+                opcionIN = Integer.parseInt(opcion);
 
-                } while (input.equals("") || input.contains("-"));
+                if (!opcion.equals("") || !opcion.equals("0") || !opcion.contains("-") || !(opcionIN > 2)) {
+                    if (opcionIN == 1) {
+                        do {
 
-                cantidadStock = Integer.parseInt(input);
-                System.out.println(cantidadStock);
-                d.actualizarStock(p, cantidadStock);
-                cargarTabla();
+                            input = JOptionPane.showInputDialog("Ingrese el STOCK nuevo");
+
+                        } while (input.equals("") || input.contains("-"));
+
+                        cantidadStock = Integer.parseInt(input);
+                        System.out.println(cantidadStock);
+                        d.actualizarStock(p, cantidadStock);
+                        cargarTabla();
+                    } else if (opcionIN == 2) {
+                        do {
+
+                            precio = JOptionPane.showInputDialog("Ingrese el PRECIO nuevo");
+
+                        } while (precio.equals("") || precio.contains("-"));
+
+                        precioN = Integer.parseInt(precio);
+                        System.out.println(precioN);
+                        d.actualizarPrecio(p, precioN);
+                        cargarTabla();
+                    }
+                }
+
             } catch (Exception e) {
             }
 
