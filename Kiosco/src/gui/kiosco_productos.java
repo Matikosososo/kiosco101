@@ -316,7 +316,7 @@ public class kiosco_productos extends javax.swing.JFrame {
                 clear();
                 cargarTabla();
             }
-
+            txt_nuevo_producto_nombre.requestFocus();
         } catch (SQLException ex) {
             Logger.getLogger(kiosco_productos.class.getName()).log(Level.SEVERE, null, ex);
         }
