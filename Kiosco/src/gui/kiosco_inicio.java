@@ -24,6 +24,7 @@ public class kiosco_inicio extends javax.swing.JFrame {
         try {
             d = new Data();
             initComponents();
+            init();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(kiosco_inicio.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -264,4 +265,8 @@ public class kiosco_inicio extends javax.swing.JFrame {
     private javax.swing.JPasswordField jpass_kiosco_inicio_clave;
     private javax.swing.JPanel jpn_kiosco_inicio;
     // End of variables declaration//GEN-END:variables
+
+    private void init() {
+        this.setLocationRelativeTo(null);
+    }
 }

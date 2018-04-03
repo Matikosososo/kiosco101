@@ -19,6 +19,7 @@ public class kiosco_menu_principal extends javax.swing.JFrame {
      */
     public kiosco_menu_principal() {
         initComponents();
+        init();
     }
 
     /**
@@ -213,4 +214,8 @@ public class kiosco_menu_principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jpn_kiosco_menu_principal;
     // End of variables declaration//GEN-END:variables
+
+    private void init() {
+        this.setLocationRelativeTo(null);
+    }
 }

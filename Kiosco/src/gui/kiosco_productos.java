@@ -485,5 +485,6 @@ public class kiosco_productos extends javax.swing.JFrame {
     private void init() {
         jtable_kiosco_productos_lista.setModel(new DefaultTableModel());
         cargarTabla();
+        this.setLocationRelativeTo(null);
     }
 }

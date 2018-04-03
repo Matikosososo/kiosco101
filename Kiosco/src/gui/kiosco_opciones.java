@@ -311,8 +311,7 @@ public class kiosco_opciones extends javax.swing.JFrame {
     ;
     
     private void init() {
-
         jpn_cambiar_clave.setVisible(false);
-
+        this.setLocationRelativeTo(null);
     }
 }

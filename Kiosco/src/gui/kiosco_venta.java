@@ -468,6 +468,8 @@ public class kiosco_venta extends javax.swing.JFrame {
             jtable_carrito_venta.setModel(new DefaultTableModel());
             cargarTabla();
             lbl_numBoleta.setText("" + d.getBoleta() + "");
+            cargarTablaVenta(listaProductos);
+            this.setLocationRelativeTo(null);
         } catch (SQLException ex) {
             Logger.getLogger(kiosco_venta.class.getName()).log(Level.SEVERE, null, ex);
         }
