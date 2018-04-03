@@ -68,7 +68,7 @@ public class kiosco_menu_principal extends javax.swing.JFrame {
         });
 
         btn_kiosco_menu_principal_salir.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        btn_kiosco_menu_principal_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/cerrar.png"))); // NOI18N
+        btn_kiosco_menu_principal_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/cancelar.png"))); // NOI18N
         btn_kiosco_menu_principal_salir.setText("Salir");
         btn_kiosco_menu_principal_salir.setIconTextGap(10);
         btn_kiosco_menu_principal_salir.addActionListener(new java.awt.event.ActionListener() {

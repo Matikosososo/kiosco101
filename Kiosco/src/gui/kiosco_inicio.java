@@ -53,13 +53,14 @@ public class kiosco_inicio extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/quiosco.png"))); // NOI18N
         jLabel1.setText("Kiosco 101");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Ingrese contraseña:");
 
-        jpass_kiosco_inicio_clave.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jpass_kiosco_inicio_clave.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jpass_kiosco_inicio_clave.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jpass_kiosco_inicio_clave.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -86,7 +87,7 @@ public class kiosco_inicio extends javax.swing.JFrame {
         });
 
         btn_kiosco_inicio_salir.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        btn_kiosco_inicio_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/cerrar.png"))); // NOI18N
+        btn_kiosco_inicio_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/cancelar.png"))); // NOI18N
         btn_kiosco_inicio_salir.setText("Salir");
         btn_kiosco_inicio_salir.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btn_kiosco_inicio_salir.setIconTextGap(15);
@@ -112,7 +113,7 @@ public class kiosco_inicio extends javax.swing.JFrame {
                 .addGroup(jpn_kiosco_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpn_kiosco_inicioLayout.createSequentialGroup()
                         .addComponent(btn_kiosco_inicio_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addGap(40, 40, 40))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpn_kiosco_inicioLayout.createSequentialGroup()
                         .addComponent(btn_kiosco_inicio_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(171, 171, 171))))
@@ -120,17 +121,17 @@ public class kiosco_inicio extends javax.swing.JFrame {
         jpn_kiosco_inicioLayout.setVerticalGroup(
             jpn_kiosco_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpn_kiosco_inicioLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addComponent(jpass_kiosco_inicio_clave, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addComponent(btn_kiosco_inicio_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(btn_kiosco_inicio_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -85,37 +85,40 @@ public class kiosco_productos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jtable_kiosco_productos_lista);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/panadero.png"))); // NOI18N
         jLabel1.setText("Lista de productos");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/cereal.png"))); // NOI18N
         jLabel2.setText("Agregar nuevo producto");
         jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel3.setText("Nombre: ");
 
-        txt_nuevo_producto_nombre.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_nuevo_producto_nombre.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txt_nuevo_producto_nombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel4.setText("Precio: ");
 
-        jsp_nuevo_producto_precio.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jsp_nuevo_producto_precio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jsp_nuevo_producto_precio.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel5.setText("Cantidad: ");
 
-        jsp_nuevo_producto_cantidad.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jsp_nuevo_producto_cantidad.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jsp_nuevo_producto_cantidad.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
-        btn_nuevo_producto_agregar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn_nuevo_producto_agregar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btn_nuevo_producto_agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/mapas-y-banderas.png"))); // NOI18N
         btn_nuevo_producto_agregar.setText("Agregar");
         btn_nuevo_producto_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +126,8 @@ public class kiosco_productos extends javax.swing.JFrame {
             }
         });
 
-        btn_nuevo_producto_cancelar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn_nuevo_producto_cancelar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btn_nuevo_producto_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/cancelar.png"))); // NOI18N
         btn_nuevo_producto_cancelar.setText("Cancelar");
         btn_nuevo_producto_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,10 +154,10 @@ public class kiosco_productos extends javax.swing.JFrame {
                             .addComponent(txt_nuevo_producto_nombre)
                             .addComponent(jsp_nuevo_producto_precio)
                             .addComponent(jsp_nuevo_producto_cantidad)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_nuevo_producto_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_nuevo_producto_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_nuevo_producto_cancelar)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -180,7 +184,8 @@ public class kiosco_productos extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        btn_productos_volver.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn_productos_volver.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btn_productos_volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/proximo izquierda.png"))); // NOI18N
         btn_productos_volver.setText("Volver");
         btn_productos_volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,12 +193,13 @@ public class kiosco_productos extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/busqueda.png"))); // NOI18N
         jLabel6.setText("Buscador");
         jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        txt_buscar_productos.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_buscar_productos.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txt_buscar_productos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_buscar_productos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -201,7 +207,8 @@ public class kiosco_productos extends javax.swing.JFrame {
             }
         });
 
-        btn_buscar_productos.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn_buscar_productos.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btn_buscar_productos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/busqueda.png"))); // NOI18N
         btn_buscar_productos.setText("Buscar");
         btn_buscar_productos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,7 +257,7 @@ public class kiosco_productos extends javax.swing.JFrame {
                         .addComponent(btn_buscar_productos, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
+                        .addGap(31, 31, 31)
                         .addComponent(btn_productos_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );

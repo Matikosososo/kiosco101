@@ -57,7 +57,8 @@ public class kiosco_opciones extends javax.swing.JFrame {
 
         jpn_kiosco_opciones.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btn_kiosco_opciones_cambiar_clave.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn_kiosco_opciones_cambiar_clave.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btn_kiosco_opciones_cambiar_clave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/llave-maestra.png"))); // NOI18N
         btn_kiosco_opciones_cambiar_clave.setText("Cambiar contraseña");
         btn_kiosco_opciones_cambiar_clave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,22 +68,26 @@ public class kiosco_opciones extends javax.swing.JFrame {
 
         jpn_cambiar_clave.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jpass_cambiar_clave_actual.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jpass_cambiar_clave_actual.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel1.setText("Ingrese contraseña actual: ");
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel2.setText("Ingrese nueva contraseña: ");
 
+        jpass_cambiar_clave_nueva.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jpass_cambiar_clave_nueva.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel3.setText("Confirme contraseña: ");
 
+        jpass_cambiar_clave_confirmar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jpass_cambiar_clave_confirmar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        btn_cambiar_clave_confirmar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn_cambiar_clave_confirmar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btn_cambiar_clave_confirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/mapas-y-banderas.png"))); // NOI18N
         btn_cambiar_clave_confirmar.setText("Confirmar");
         btn_cambiar_clave_confirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +95,8 @@ public class kiosco_opciones extends javax.swing.JFrame {
             }
         });
 
-        btn_cambiar_clave_cancelar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn_cambiar_clave_cancelar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btn_cambiar_clave_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/cancelar.png"))); // NOI18N
         btn_cambiar_clave_cancelar.setText("Cancelar");
         btn_cambiar_clave_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,12 +109,12 @@ public class kiosco_opciones extends javax.swing.JFrame {
         jpn_cambiar_claveLayout.setHorizontalGroup(
             jpn_cambiar_claveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpn_cambiar_claveLayout.createSequentialGroup()
-                .addGap(117, 117, 117)
+                .addGap(30, 30, 30)
                 .addGroup(jpn_cambiar_claveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jpn_cambiar_claveLayout.createSequentialGroup()
-                        .addComponent(btn_cambiar_clave_confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_cambiar_clave_confirmar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_cambiar_clave_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_cambiar_clave_cancelar))
                     .addGroup(jpn_cambiar_claveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jpass_cambiar_clave_nueva, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -116,12 +122,12 @@ public class kiosco_opciones extends javax.swing.JFrame {
                         .addComponent(jpass_cambiar_clave_confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jpn_cambiar_claveLayout.setVerticalGroup(
             jpn_cambiar_claveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpn_cambiar_claveLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jpass_cambiar_clave_actual, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,14 +139,15 @@ public class kiosco_opciones extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jpass_cambiar_clave_confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(18, 18, 18)
                 .addGroup(jpn_cambiar_claveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cambiar_clave_confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_cambiar_clave_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        btn_kiosco_opciones_volver.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn_kiosco_opciones_volver.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btn_kiosco_opciones_volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/icon/proximo izquierda.png"))); // NOI18N
         btn_kiosco_opciones_volver.setText("Volver");
         btn_kiosco_opciones_volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,9 +162,9 @@ public class kiosco_opciones extends javax.swing.JFrame {
             .addGroup(jpn_kiosco_opcionesLayout.createSequentialGroup()
                 .addContainerGap(40, Short.MAX_VALUE)
                 .addGroup(jpn_kiosco_opcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_kiosco_opciones_cambiar_clave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_kiosco_opciones_volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(40, 40, 40)
+                    .addComponent(btn_kiosco_opciones_volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_kiosco_opciones_cambiar_clave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
                 .addComponent(jpn_cambiar_clave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
         );
@@ -169,7 +176,7 @@ public class kiosco_opciones extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addComponent(jpn_cambiar_clave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jpn_kiosco_opcionesLayout.createSequentialGroup()
-                        .addGap(126, 126, 126)
+                        .addGap(102, 102, 102)
                         .addComponent(btn_kiosco_opciones_cambiar_clave, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(48, 48, 48)
                         .addComponent(btn_kiosco_opciones_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -181,7 +188,7 @@ public class kiosco_opciones extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jpn_kiosco_opciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
