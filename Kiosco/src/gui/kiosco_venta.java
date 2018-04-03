@@ -161,6 +161,12 @@ public class kiosco_venta extends javax.swing.JFrame {
             }
         });
 
+        txt_buscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_buscarKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpn_kiosco_ventaLayout = new javax.swing.GroupLayout(jpn_kiosco_venta);
         jpn_kiosco_venta.setLayout(jpn_kiosco_ventaLayout);
         jpn_kiosco_ventaLayout.setHorizontalGroup(
@@ -280,16 +286,14 @@ public class kiosco_venta extends javax.swing.JFrame {
                     input = JOptionPane.showInputDialog("Ingrese cantidad a llevar");
                     System.out.println(input);
                 } while (input.equals("0") || input.equals("") || input.contains("-"));
-                
+
                 cantidad = Integer.parseInt(input);
                 System.out.println(cantidad);
                 select(cantidad);
 
-                
-                
             } catch (Exception e) {
-                
-            } 
+
+            }
         }
     }//GEN-LAST:event_jtable_lista_ventaMouseClicked
 
@@ -353,13 +357,13 @@ public class kiosco_venta extends javax.swing.JFrame {
 
                 cargarTablaVenta(listaProductos);
                 cargarTabla();
-                
+
                 //precio total txt
                 int precioUnidad = (d.getPrecioTotal(p.getCantidad(), p.getId(), p.getPrecio()));
                 int precioSubTotal = (Integer.parseInt(txt_venta_total.getText())) - precioUnidad;
                 String precioTotal = String.valueOf(precioSubTotal);
                 txt_venta_total.setText(precioTotal);
-                if(listaProductos.isEmpty()){
+                if (listaProductos.isEmpty()) {
                     btn_kiosco_venta_realizar.setEnabled(false);
                     btn_kiosco_venta_volver.setEnabled(true);
                 }
@@ -377,6 +381,17 @@ public class kiosco_venta extends javax.swing.JFrame {
         }
         cargarTablaBuscar(buscar);
     }//GEN-LAST:event_btn_buscarActionPerformed
+
+    private void txt_buscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscarKeyPressed
+        if (evt.getKeyCode() == evt.VK_ENTER) {
+            String buscar = txt_buscar.getText();
+
+            if (txt_buscar.getText() == null) {
+                cargarTabla();
+            }
+            cargarTablaBuscar(buscar);
+        }
+    }//GEN-LAST:event_txt_buscarKeyPressed
 
     /**
      * @param args the command line arguments
@@ -477,7 +492,7 @@ public class kiosco_venta extends javax.swing.JFrame {
             int stock = (int) jtable_lista_venta.getValueAt(row, 3);
             if (stock == 0 || cantidad > stock) {
                 JOptionPane.showMessageDialog(null, "No posee Stock o la cantidad ingresada es Mayor al Stock del producto");
-                
+
             } else {
                 Producto p = new Producto();
                 p.setId((int) jtable_lista_venta.getValueAt(row, 0));//columna 0=nombre
@@ -503,7 +518,7 @@ public class kiosco_venta extends javax.swing.JFrame {
                 cargarTablaVenta(listaProductos);
                 cargarTabla();
                 btn_kiosco_venta_realizar.setEnabled(true);
-                
+
             }
 
         } catch (SQLException ex) {
@@ -519,7 +534,7 @@ public class kiosco_venta extends javax.swing.JFrame {
     }
 
     private void cargarTablaBuscar(String buscar) {
-         try {
+        try {
             List<Producto> listaProducto = d.buscarProducto(buscar);
             TMProductos tm = new TMProductos(listaProducto);
             jtable_lista_venta.setModel(tm);

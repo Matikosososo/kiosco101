@@ -195,6 +195,11 @@ public class kiosco_productos extends javax.swing.JFrame {
 
         txt_buscar_productos.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_buscar_productos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_buscar_productos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_buscar_productosKeyPressed(evt);
+            }
+        });
 
         btn_buscar_productos.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btn_buscar_productos.setText("Buscar");
@@ -243,7 +248,7 @@ public class kiosco_productos extends javax.swing.JFrame {
                         .addComponent(txt_buscar_productos, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addComponent(btn_buscar_productos, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addComponent(btn_productos_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -344,6 +349,17 @@ public class kiosco_productos extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jtable_kiosco_productos_listaMouseClicked
+
+    private void txt_buscar_productosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscar_productosKeyPressed
+        if (evt.getKeyCode() == evt.VK_ENTER) {
+            String buscar = txt_buscar_productos.getText();
+
+            if (txt_buscar_productos.getText() == null) {
+                cargarTabla();
+            }
+            cargarTablaBuscar(buscar);
+        }
+    }//GEN-LAST:event_txt_buscar_productosKeyPressed
 
     /**
      * @param args the command line arguments
